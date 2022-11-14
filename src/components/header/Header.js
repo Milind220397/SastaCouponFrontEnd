@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import "./Header.css";
 import Logo from "./Site_Icon.png"
+import NavModal from './navModal/navModal'
 export default function Header(props) {
   let [windowWidth, setWindowWidth] = useState(0);
 
@@ -12,6 +13,11 @@ export default function Header(props) {
     updateSize();
     return () => window.removeEventListener('resize', updateSize);
   }, []);
+
+  let showModal = (e) => {
+    document.querySelector('.nav-modal').classList.remove('out');
+    document.querySelector('.nav-modal').classList.add('active');
+  }
 
 
   return (
@@ -28,9 +34,10 @@ export default function Header(props) {
           <span className="material-icons">person</span>
         </ul>
       </nav>  :  <nav className="nav">
-      <span class="nav-icons material-icons md-48 white">menu</span>
+      <span className="nav-icons material-icons md-48 white" onClick={showModal}>menu</span>
       <a href='/'><img src={Logo} alt="site_logo" className='site_icon'></img></a>
       <span className="nav-icons material-icons md-48 white">person</span>
+      <NavModal/>
       </nav>}
     </>
   );
