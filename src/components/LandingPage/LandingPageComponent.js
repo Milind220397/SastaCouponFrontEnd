@@ -2,7 +2,6 @@ import './LandingPageStyle.css'
 import Box from '@mui/material/Box';
 import LandingPageCard from "./LandingPageCard/LandingPageCard";
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import zomato from "./zomato.png"
 import amazon from "./amazon.png"
 import indigo from "./indigo.png"
