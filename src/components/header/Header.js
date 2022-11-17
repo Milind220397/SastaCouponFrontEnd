@@ -2,8 +2,10 @@ import React, { useLayoutEffect, useState } from "react";
 import "./Header.css";
 import Logo from "./Site_Icon.png"
 import NavModal from './navModal/navModal'
+import LogIn from "../LogIn/LogIn";
 export default function Header(props) {
   let [windowWidth, setWindowWidth] = useState(0);
+  let [showLoginModal, setShowLoginModal] = useState(false);
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -21,7 +23,7 @@ export default function Header(props) {
 
 
   return (
-    <>
+    <>{showLoginModal?<LogIn setShowLoginModal={setShowLoginModal}/>: null}
     {windowWidth>769? 
     <nav className="nav">
         <ul className="nav-list">
@@ -31,12 +33,12 @@ export default function Header(props) {
           <a href='/'><img src={Logo} alt="site_logo" className='site_icon'></img></a>
           <li>FAQ</li>
           <li>Sell your coupon</li>
-          <span className="material-icons">person</span>
+          <span className="material-icons" onClick={()=>{setShowLoginModal(true)}}>person</span>
         </ul>
       </nav>  :  <nav className="nav">
       <span className="nav-icons material-icons md-48 white" onClick={showModal}>menu</span>
       <a href='/'><img src={Logo} alt="site_logo" className='site_icon'></img></a>
-      <span className="nav-icons material-icons md-48 white">person</span>
+      <span className="nav-icons material-icons md-48 white"  onClick={()=>{setShowLoginModal(true)}}>person</span>
       <NavModal/>
       </nav>}
     </>

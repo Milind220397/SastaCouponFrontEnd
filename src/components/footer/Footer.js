@@ -5,7 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
-export default function Header(props) {
+export default function Footer(props) {
   return (
     <div className="footer">
       <div className="footer-content">

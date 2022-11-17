@@ -12,7 +12,7 @@
   top: 40px;
   background-color: white;
   border-radius: 35px;
-  font-family: paytoneOne;
+  font-family: patuaOne;
   display: flex;
   list-style: none;
   font-size: larger;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.nav-list > li,a {
+.nav-list > li,a,span {
   cursor: pointer;
 }
 

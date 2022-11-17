@@ -42,9 +42,9 @@ export default function UploadCoupon(props) {
         </Box>
         <span>SELECT A DENOMINATION FOR YOUR COUPON</span>
         <Box className='denomination'>
-            <Button variant="outlined">10 Credits</Button>
-            <Button variant="outlined">20 Credits</Button>
-            <Button variant="outlined">30 Credits</Button>
+            <Button variant="outlined" size="large">10 Credits</Button>
+            <Button variant="outlined" size="large">20 Credits</Button>
+            <Button variant="outlined" size="large">30 Credits</Button>
             <TextField id="outlined-basic" label="Enter Credit Amount" variant="outlined" size="small" />
         </Box>
         <span>SELECT EXPIRY DATE OF THE COUPON</span>
