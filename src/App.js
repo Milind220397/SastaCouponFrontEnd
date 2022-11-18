@@ -2,6 +2,7 @@
 import './App.css';
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Profile from "./components/Profile/Profile"
 import LandingPageComponent from './components/LandingPage/LandingPageComponent';
 import UploadCoupon from './components/UploadCoupon/UploadCoupon'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -11,10 +12,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 function App() {
   return (
     <div className="App">
-     
+
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Header/>
-      <UploadCoupon/>
+      <Profile/>
       <Footer/>
       </LocalizationProvider>
       
