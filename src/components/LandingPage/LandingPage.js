@@ -9,7 +9,7 @@ import swiggy from "./swiggy.png"
 import coupon from "./coupon.png"
 import bannerImage from './banner_image.png'
 
-export default function LandingPageComponent() {
+export default function LandingPage() {
 
     let coupons = [{
         couponName: 'Zomato Coupon',

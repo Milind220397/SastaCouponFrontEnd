@@ -25,6 +25,11 @@
   cursor: pointer;
 }
 
+.nav-list a {
+  text-decoration: none;
+  color: #3C286D;
+}
+
 .site_icon {
   height: 120px;
 }

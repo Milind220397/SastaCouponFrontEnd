@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import './Profile.css';
 import React from "react";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import axios from "axios";
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
+import { TextField } from '@mui/material';
 
 function Profile() {
   let id = 1;
@@ -150,9 +151,10 @@ function Profile() {
             <div className='fullname'>
 
               <label className='fullname11'>Country</label>
-              <input className='fullname12' type='text' placeholder='Country'
+              <TextField sx={{width: '40%', minWidth: 300}} margin="normal" id="outlined-basic" label="Country" variant="outlined" />
+              {/* <input className='fullname12' type='text' placeholder='Country'
                 value={profile.COUNTRY}
-                onChange={e => setprofile({ ...profile, COUNTRY: e.target.value })}></input>
+                onChange={e => setprofile({ ...profile, COUNTRY: e.target.value })}></input> */}
             </div>
           </div>
           <button className='button' onClick={handleSave}>Save</button>

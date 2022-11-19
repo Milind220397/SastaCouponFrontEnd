@@ -3,6 +3,7 @@ import "./Header.css";
 import Logo from "./Site_Icon.png"
 import NavModal from './navModal/navModal'
 import LogIn from "../LogIn/LogIn";
+import { Link } from "react-router-dom";
 export default function Header(props) {
   let [windowWidth, setWindowWidth] = useState(0);
   let [showLoginModal, setShowLoginModal] = useState(false);
@@ -27,12 +28,12 @@ export default function Header(props) {
     {windowWidth>769? 
     <nav className="nav">
         <ul className="nav-list">
-          <li>Home</li>
-          <li>Mission</li>
-          <li>Discover</li>
-          <a href='/'><img src={Logo} alt="site_logo" className='site_icon'></img></a>
-          <li>FAQ</li>
-          <li>Sell your coupon</li>
+          <Link to="/home">Home</Link>
+          <Link to="/about-us">Mission</Link>
+          <Link to="/discover">Discover</Link>
+          <Link to='/'><img src={Logo} alt="site_logo" className='site_icon'></img></Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/upload-coupon">Sell your coupon</Link>
           <span className="material-icons" onClick={()=>{setShowLoginModal(true)}}>person</span>
         </ul>
       </nav>  :  <nav className="nav">
