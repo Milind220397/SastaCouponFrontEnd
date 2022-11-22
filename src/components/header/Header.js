@@ -3,10 +3,10 @@ import "./Header.css";
 import Logo from "./Site_Icon.png"
 import NavModal from './navModal/navModal'
 import LogIn from "../LogIn/LogIn";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 export default function Header(props) {
   let [windowWidth, setWindowWidth] = useState(0);
-  let [showLoginModal, setShowLoginModal] = useState(false);
+  //let [showLoginModal, setShowLoginModal] = useState(false);
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -24,7 +24,8 @@ export default function Header(props) {
 
 
   return (
-    <>{showLoginModal?<LogIn setShowLoginModal={setShowLoginModal}/>: null}
+    <>
+    {/* {showLoginModal?<LogIn setShowLoginModal={setShowLoginModal}/>: null} */}
     {windowWidth>769? 
     <nav className="nav">
         <ul className="nav-list">
@@ -34,12 +35,12 @@ export default function Header(props) {
           <Link to='/'><img src={Logo} alt="site_logo" className='site_icon'></img></Link>
           <Link to="/faq">FAQ</Link>
           <Link to="/upload-coupon">Sell your coupon</Link>
-          <span className="material-icons" onClick={()=>{setShowLoginModal(true)}}>person</span>
+          <Link to="/logIn"><span className="material-icons">person</span></Link>
         </ul>
       </nav>  :  <nav className="nav">
       <span className="nav-icons material-icons md-48 white" onClick={showModal}>menu</span>
       <a href='/'><img src={Logo} alt="site_logo" className='site_icon'></img></a>
-      <span className="nav-icons material-icons md-48 white"  onClick={()=>{setShowLoginModal(true)}}>person</span>
+      <Link to="/logIn"><span className="nav-icons material-icons md-48 white">person</span></Link>
       <NavModal/>
       </nav>}
     </>

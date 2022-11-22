@@ -11,17 +11,20 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import NotFoundPage from './components/ErrorPage/NotFoundPage';
 import RouterSwitch from './Router/RouterSwitch';
 import { BrowserRouter } from 'react-router-dom';
+import {AuthProvider} from './Context/AuthProvider';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Header/>
-      <RouterSwitch/>
-      <Footer/>
-      </LocalizationProvider>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Header/>
+              <RouterSwitch/>
+            <Footer/>
+          </LocalizationProvider>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
     
   );
