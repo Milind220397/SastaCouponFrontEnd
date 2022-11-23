@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.a005607c.css",
-    "main.js": "/static/js/main.17205c53.js",
-    "static/js/787.ba1cdf46.chunk.js": "/static/js/787.ba1cdf46.chunk.js",
-    "static/media/error_vector.png": "/static/media/error_vector.4ae61ae59123cf86b12c.png",
-    "static/media/banner_image.png": "/static/media/banner_image.28cd9c52f7ec8510b474.png",
-    "static/media/Vector.png": "/static/media/Vector.f4feaff1f9acc938e695.png",
-    "static/media/PaytoneOne-Regular.ttf": "/static/media/PaytoneOne-Regular.cbe5045121f3f8167fb4.ttf",
-    "static/media/Frame.png": "/static/media/Frame.be0b819d2e267a693956.png",
-    "static/media/check.png": "/static/media/check.6c639fe8ec9df98ab14a.png",
-    "static/media/PatuaOne-Regular.ttf": "/static/media/PatuaOne-Regular.a9f01afefe6f58c9aeb2.ttf",
-    "static/media/Indigo.png": "/static/media/Indigo.69e0f71f5a2cb9d6a214.png",
-    "static/media/coupon.png": "/static/media/coupon.86114466f536e459e31f.png",
-    "static/media/amazon.png": "/static/media/amazon.f1a3a4a4063bf1d0fd0f.png",
-    "static/media/swiggy.png": "/static/media/swiggy.71bb0cfbd7eda095ee97.png",
-    "static/media/indigo.png": "/static/media/indigo.0836e7b306b5db7d94c9.png",
-    "static/media/fail.png": "/static/media/fail.8dca76718759c8c3f45a.png",
-    "index.html": "/index.html",
-    "main.a005607c.css.map": "/static/css/main.a005607c.css.map",
-    "main.17205c53.js.map": "/static/js/main.17205c53.js.map",
-    "787.ba1cdf46.chunk.js.map": "/static/js/787.ba1cdf46.chunk.js.map"
+    "main.css": "/SastaCouponFrontEnd/static/css/main.5b137af8.css",
+    "main.js": "/SastaCouponFrontEnd/static/js/main.f4b67bd5.js",
+    "static/js/787.ba1cdf46.chunk.js": "/SastaCouponFrontEnd/static/js/787.ba1cdf46.chunk.js",
+    "static/media/error_vector.png": "/SastaCouponFrontEnd/static/media/error_vector.4ae61ae59123cf86b12c.png",
+    "static/media/banner_image.png": "/SastaCouponFrontEnd/static/media/banner_image.28cd9c52f7ec8510b474.png",
+    "static/media/Vector.png": "/SastaCouponFrontEnd/static/media/Vector.f4feaff1f9acc938e695.png",
+    "static/media/PaytoneOne-Regular.ttf": "/SastaCouponFrontEnd/static/media/PaytoneOne-Regular.cbe5045121f3f8167fb4.ttf",
+    "static/media/Frame.png": "/SastaCouponFrontEnd/static/media/Frame.be0b819d2e267a693956.png",
+    "static/media/check.png": "/SastaCouponFrontEnd/static/media/check.6c639fe8ec9df98ab14a.png",
+    "static/media/PatuaOne-Regular.ttf": "/SastaCouponFrontEnd/static/media/PatuaOne-Regular.a9f01afefe6f58c9aeb2.ttf",
+    "static/media/Indigo.png": "/SastaCouponFrontEnd/static/media/Indigo.69e0f71f5a2cb9d6a214.png",
+    "static/media/coupon.png": "/SastaCouponFrontEnd/static/media/coupon.86114466f536e459e31f.png",
+    "static/media/amazon.png": "/SastaCouponFrontEnd/static/media/amazon.f1a3a4a4063bf1d0fd0f.png",
+    "static/media/swiggy.png": "/SastaCouponFrontEnd/static/media/swiggy.71bb0cfbd7eda095ee97.png",
+    "static/media/indigo.png": "/SastaCouponFrontEnd/static/media/indigo.0836e7b306b5db7d94c9.png",
+    "static/media/fail.png": "/SastaCouponFrontEnd/static/media/fail.8dca76718759c8c3f45a.png",
+    "index.html": "/SastaCouponFrontEnd/index.html",
+    "main.5b137af8.css.map": "/SastaCouponFrontEnd/static/css/main.5b137af8.css.map",
+    "main.f4b67bd5.js.map": "/SastaCouponFrontEnd/static/js/main.f4b67bd5.js.map",
+    "787.ba1cdf46.chunk.js.map": "/SastaCouponFrontEnd/static/js/787.ba1cdf46.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a005607c.css",
-    "static/js/main.17205c53.js"
+    "static/css/main.5b137af8.css",
+    "static/js/main.f4b67bd5.js"
   ]
 }
