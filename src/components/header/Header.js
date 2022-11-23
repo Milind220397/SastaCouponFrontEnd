@@ -30,7 +30,7 @@ export default function Header(props) {
     <nav className="nav">
         <ul className="nav-list">
           <Link to="/home">Home</Link>
-          <Link to="/about-us">Mission</Link>
+          <Link to="/about">Mission</Link>
           <Link to="/discover">Discover</Link>
           <Link to='/'><img src={Logo} alt="site_logo" className='site_icon'></img></Link>
           <Link to="/faq">FAQ</Link>

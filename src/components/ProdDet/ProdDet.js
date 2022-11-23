@@ -2,7 +2,7 @@ import React from "react";
 import "./ProdDet.css";
 import Logo from "./Indigo.png"
 import { Box } from "@mui/material";
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate,useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CountertopsRounded } from "@mui/icons-material";
@@ -27,6 +27,7 @@ function loadScript(src) {
 
 export default function ProdDet(props) {
 
+  const location = useLocation();
   const navigate = useNavigate();
 
   const navigateTosuccess = (obj) => {
@@ -65,22 +66,9 @@ export default function ProdDet(props) {
       return
     }
 
-
-
-    // const data = await fetch('http://localhost:1347/razorpay', { method: 'POST' },
-
-    //     // body: JSON.stringify({
-    //     //   coupon_id: coupon.ID,
-    //     // })
-    
-    // ).then((t) =>
-    //   t.json()
-    // )                                           // need to change while deploying"
-
-
     const data = await axios
       .post(`http://localhost:1347/razorpay?`, {
-       id: coup_id ,
+       id: location.state.cououponid ,
        amount:coupon.PRICE,
        coupon_id:coupon.ID,
       }).then((t) =>{
@@ -99,9 +87,7 @@ export default function ProdDet(props) {
       description: 'Buy and Sell Coupons',
       image: './Indigo.png',
       handler: function (response) {
-        // alert(response.razorpay_payment_id)
-        // alert(response.razorpay_order_id)
-        // alert(response.razorpay_signature)
+        
        console.log(response);
         let obj = {
           "transaction_id": response.razorpay_payment_id,
