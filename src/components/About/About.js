@@ -7,7 +7,7 @@ import Logo from "./Logo.png"
 function About() {
     return (
         <div>
-            {/* <Header /> */}
+            
             <div className='content'>
                 <div className='content1'>
                     <div className='headings'>About Us</div>
@@ -50,7 +50,7 @@ function About() {
                 </div>
                 </div>
             </div>
-            {/* <Footer note="Footer Note" /> */}
+          
         </div>
     )
 }
