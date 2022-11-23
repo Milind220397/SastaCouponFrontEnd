@@ -68,7 +68,7 @@ export default function ProdDet(props) {
 
     const data = await axios
       .post(`http://localhost:1347/razorpay?`, {
-       id: location.state.cououponid ,
+       id: location.state.couponId ,
        amount:coupon.PRICE,
        coupon_id:coupon.ID,
       }).then((t) =>{
