@@ -78,10 +78,11 @@
     left: 37%; 
     font-weight: bolder;
     font-size: larger;
-    background-color: rgb(5, 5, 70);
+    background-color: #3C286D;
     color: white;
     border-radius: 25px;
     padding: 1%;
+   
    
     
 }
@@ -141,13 +142,29 @@
 }
 .button1{
     position: relative;
-    width:50%;
+    width:21%;
     top:10%;
     align-self: center;
-    font-weight: bolder;
-    font-size: larger;
+   
+    font-size: medium;
+    background-color:  #3C286D;
+    color: white;
+    height:9%;
+    border-radius: 25px;
+}
+.button2{
+    /* position: relative;
+    width:50%;
+    top:10%; */
+    align-self: center;
+    /* font-weight: bolder;
+    font-size: larger; */
     background-color: rgb(6, 6, 76);
     color: white;
     /* height:10%; */
     border-radius: 25px;
+}
+
+button:hover{
+    background: rgb(78, 78, 186);
 }

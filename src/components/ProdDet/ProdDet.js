@@ -51,6 +51,7 @@ export default function ProdDet(props) {
     SELLER_ID: '',
     BUYER_ID: '',
     COUPON_CODE: '',
+    NAME:'',
 
   });
   //*********************Razorpay Integration********************************* */
@@ -166,6 +167,7 @@ export default function ProdDet(props) {
             "SELLER_ID": res.data.SELLER_ID,
             "URL": res.data.URL,
             "COUPON_CODE": res.data.COUPON_CODE,
+            "NAME":res.data.NAME,
           }
           console.log(value1);
           console.log(res.data.SELLER_ID)
@@ -190,11 +192,11 @@ export default function ProdDet(props) {
       <div className="coupon">
         <img className="coupondesc1" id="logo" src={coupon.URL}></img>
         {/* <div className="coupondesc2"> */}
-        <Box className="desc_box" component="div" sx={{ color: 'blue' }}>
-          <strong color="blue">Description:</strong>
+        <Box className="desc_box" component="div" sx={{ color: 'black' }}>
+          <strong color="black">Description:</strong>
         </Box>
-        <Box className="desc_box" sx={{ color: 'blue' }} >{coupon.DESCRIPTION}</Box>
-        <Box component="div" sx={{ fontSize: 10, color: 'blue' }} className="desc_box"><strong>Terms and Conditions:</strong>
+        <Box className="desc_box" sx={{ color: 'black' }} >{coupon.DESCRIPTION}</Box>
+        <Box component="div" sx={{ fontSize: 10, color: 'black' }} className="desc_box"><strong>Terms and Conditions:</strong>
           <li>By using this card,
             you agree to the Cardholder Agreement at redeem.giftcards.com. Participating brands may
             have their own card terms, acceptance conditions and be subject to availability.</li>
@@ -214,8 +216,8 @@ export default function ProdDet(props) {
           <input type="text" className="input" value={coupon.EXPIRY}  ></input>
         </div>
         <div className="couponitem" >
-          <label className="label">Sold   by </label>
-          <input type="text" className="input" value={coupon.SELLER_ID} ></input>
+          <label className="label">Name </label>
+          <input type="text" className="input" value={coupon.NAME} ></input>
         </div>
         <div className="couponitem">
           <label className="label">Amount </label>

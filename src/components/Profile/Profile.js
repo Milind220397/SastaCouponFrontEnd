@@ -112,14 +112,15 @@ function Profile() {
             <Avatar alt="Remy Sharp" src={file}
               sx={{ width: 190, height: 190, margin: 3, color: 'darkgrey' }}
               variant="square" />
-            <Button variant="contained" component="label" color="primary">
+            <Button className='button2' variant="contained" component="label" 
+            sx={{ ":hover":{ backgroundColor:'#d11aff'},backgroundColor:'#3C286D' , borderRadius:25 ,}}>
               Upload
               <input hidden accept="image/*" multiple type="file"
                 onChange={handleFile} />
             </Button>
           </div>
 
-          <button className='button1'>Order history</button>
+          <button className='button1'>HISTORY</button>
 
         </div>
         <div className='profile2'>
