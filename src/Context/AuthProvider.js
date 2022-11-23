@@ -9,15 +9,23 @@ export function useAuth() {
 
 export function AuthProvider({children}) {
 
-    const [currentUser, setCurrentUser] = useState(null);
+    const setCurrentUser = (user) => {
+        localStorage.setItem('sasta-coupon-app', JSON.stringify(user));
+        axios.interceptors.request.use((config) => {
+            if(config && config.headers) {
+                config.headers.Authorization = `Bearer ${user.token}`
+            }
+            return config;
+        })
+    }
 
     const signIn = async (email, password) => {
         return await axios.post('http://localhost:9000/logIn', {
             email: email,
             password: password
-        }).then(response => {
+        }, ).then(response => {
             if(response.status === 200) {
-                setCurrentUser({email: email});
+                setCurrentUser(response.data);
                 return 'Success'
             } else {
                 return 'User Not found';
@@ -31,7 +39,7 @@ export function AuthProvider({children}) {
             password: password
         }).then(response => {
             if(response.status === 200) {
-                setCurrentUser({email: email});
+                setCurrentUser(response.data);
                 return 'Success'
             } else {
                 return 'User already exist';
@@ -44,7 +52,6 @@ export function AuthProvider({children}) {
     }
 
     const value = {
-        currentUser,
         signIn,
         signUp,
         logOut

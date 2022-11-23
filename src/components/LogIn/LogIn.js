@@ -11,7 +11,7 @@ import { useAuth } from '../../Context/AuthProvider';
 
 export default function LogIn(props) {
 
-    const {setShowLoginModal, isLogin = false} = props;
+    const {isLogin = false} = props;
     const navigate = useNavigate();
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(false);

@@ -2,48 +2,25 @@ import './LandingPageStyle.css'
 import Box from '@mui/material/Box';
 import LandingPageCard from "./LandingPageCard/LandingPageCard";
 import Button from '@mui/material/Button';
-import zomato from "./zomato.png"
-import amazon from "./amazon.png"
-import indigo from "./indigo.png"
-import swiggy from "./swiggy.png"
-import coupon from "./coupon.png"
 import bannerImage from './banner_image.png'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function LandingPage() {
 
-    let coupons = [{
-        couponName: 'Zomato Coupon',
-        couponImage: zomato,
-        couponPrice: '10 Credits'
-    }, {
-        couponName: 'Swiggy Coupon',
-        couponImage: swiggy,
-        couponPrice: '10 Credits'
-    }, {
-        couponName: 'Amazon Coupon',
-        couponImage: amazon,
-        couponPrice: '10 Credits'
-    }, {
-        couponName: 'Indigo Coupon',
-        couponImage: indigo,
-        couponPrice: '10 Credits'
-    },{
-        couponName: 'Indigo Coupon',
-        couponImage: coupon,
-        couponPrice: '10 Credits'
-    }, {
-        couponName: 'Indigo Coupon',
-        couponImage: coupon,
-        couponPrice: '10 Credits'
-    }, {
-        couponName: 'Indigo Coupon',
-        couponImage: coupon,
-        couponPrice: '10 Credits'
-    }, {
-        couponName: 'Indigo Coupon',
-        couponImage: coupon,
-        couponPrice: '10 Credits'
-    }];
+    const [coupons, setCoupons] = useState([]);
+
+    useEffect(() => {
+        const fetchCoupons = async () => {
+            await axios.get('http://localhost:9000/recent-coupon').then(res => {
+                if(res.status === 200) {
+                    setCoupons(JSON.parse(res.data));
+                }
+            })
+        }
+
+        fetchCoupons();
+    }, [])
 
     
     return <>
@@ -62,7 +39,7 @@ export default function LandingPage() {
         <Box className="feature-coupons-parent">
             <Box className="featured-coupons">
                 {coupons.map((coupon) => 
-                    <LandingPageCard couponName={coupon.couponName} couponImage={coupon.couponImage} couponPrice={coupon.couponPrice}/>
+                    <LandingPageCard couponId={coupon.ID} couponName={coupon.NAME} couponImage={coupon.URL} couponPrice={coupon.PRICE}/>
                 )}
             </Box>
         </Box>

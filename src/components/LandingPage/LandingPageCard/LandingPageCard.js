@@ -5,10 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import './LandingPageCard.css'
+import { Link } from 'react-router-dom';
 
 export default function LandingPageCard(props) {
 
-    const {couponName, couponImage, couponPrice} = props;
+    const {couponId, couponName, couponImage, couponPrice} = props;
 
     return     <Card className="landing-card" sx={{ minWidth: 250, maxHeight:256, borderRadius: 10, backgroundColor: '#F7FAFC', boxShadow: '0', margin: '5px' }}>
     <CardMedia sx={{height: 126,width: 'inherit', margin: '0 auto'}}
@@ -22,11 +23,14 @@ export default function LandingPageCard(props) {
         {couponName}
       </span>
       <p>
-          {couponPrice}
+          {couponPrice} Credits
       </p>
     </CardContent>
     <CardActions sx={{justifyContent: 'flex-end', paddingRight: 3}}>
-      <Button sx={{borderRadius: 50, width: 84, height: 28, fontSize: 11, backgroundColor: '#3C286D', fontFamily: 'patuaOne', float: 'right'}} size="small" variant="contained">Buy Now</Button>
+      <Link to='/prod-det' state={{couponId: couponId, 
+        couponName: couponName, 
+        couponImage: couponImage, 
+        couponPrice: couponPrice}}><Button sx={{borderRadius: 50, width: 84, height: 28, fontSize: 11, backgroundColor: '#3C286D', fontFamily: 'patuaOne', float: 'right'}} size="small" variant="contained">Buy Now</Button></Link>
     </CardActions>
     </Box>
   </Card>

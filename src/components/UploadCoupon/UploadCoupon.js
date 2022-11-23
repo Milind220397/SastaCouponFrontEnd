@@ -11,11 +11,14 @@ import "./UploadCoupon.css"
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Typography } from '@mui/material';
+import UploadStatusDialog from '../Dialog/UploadStatusDialog';
 
 export default function UploadCoupon(props) {
 
     const [imageList, setImageList] = useState([]);
     const [images, setImages] = useState(new Map());
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const [message, setMessage] = useState();
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -101,10 +104,13 @@ export default function UploadCoupon(props) {
         e.preventDefault();
         if(validateForm()) {
             axios.post('http://localhost:9000/uploadCoupon', createUploadCouponObject()).then((res) => {
-                if(res.status) {
-                    //showDialog
+                if(res.status === 200) {
+                    setMessage('Coupon Uploaded Successfully');
+                    setDialogOpen(true);
                 } else {
-                    throw new Error(res.status)
+                    setMessage('Error uploading coupon');
+                    setDialogOpen(true);
+                    throw new Error(res.status);
                 }
             }).catch(err => {
                 console.log(err);
@@ -162,6 +168,7 @@ export default function UploadCoupon(props) {
     }
 
     return <Box className='upload-coupon'>
+        <UploadStatusDialog open={dialogOpen} setOpen={setDialogOpen} message={message}/>
         <p id="heading">Upload your coupon</p>
         <form noValidate onSubmit={handleOnSubmit}>
         <TextField sx={{width: '40%', minWidth: 300}} onChange={handleFormChange} margin="normal" name="couponName" id="outlined-basic" label="Enter Coupon Name" variant="outlined" error={formValues.couponName.error} helperText={formValues.couponName.error && formValues.couponName.errorMessage}/>
