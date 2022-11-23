@@ -39,7 +39,7 @@ function Profile() {
 
   //Functinality for Save button
   async function handleSave() {
-    console.log(profile);
+    // console.log(profile);
     axios.post(`http://127.0.0.1:1347/profile`, {
       id: id,                                        //   change to dynamic once connection is done
       firstname: profile.FIRST_NAME,
@@ -141,7 +141,7 @@ function Profile() {
             <div className='fullname1'>
 
               <label className='fullname11'>Last Name</label>
-              <TextField className='fullname12' size="small" style={{ width: 350 }}
+              <TextField className='fullname12' type='text'size="small" style={{ width: 350 }}
                 onChange={e => {
                   setprofile({ ...profile, LAST_NAME: e.target.value })
                   console.log(profile)
@@ -153,14 +153,14 @@ function Profile() {
             <div className='fullname1'>
 
               <label className='fullname11'>Contact Nos</label>
-              <TextField className='fullname12' size="small" style={{ width: 350 }}
+              <TextField className='fullname12' type='number' size="small" style={{ width: 350 }}
                 onChange={e => setprofile({ ...profile, CONTACT: e.target.value })}
                 value={profile.CONTACT}></TextField>
 
             </div>
             <div className='fullname1'>
               <label className='fullname11'>Email</label>
-              <TextField className='fullname12' size="small" style={{ width: 350 }}
+              <TextField className='fullname12' type='email' size="small" style={{ width: 350 }}
                 onChange={e => setprofile({ ...profile, EMAIL_ID: e.target.value })}
                 value={profile.EMAIL_ID}></TextField>
             </div>
@@ -193,7 +193,7 @@ function Profile() {
             </div>
             <div className='fullname'>
               <label className='fullname11'>Zip Code</label>
-              <TextField className='fullname12' size="small" style={{ width: 350 }}
+              <TextField className='fullname12' type='number' size="small" style={{ width: 350 }}
                 onChange={e => setprofile({ ...profile, ZIP_CODE: e.target.value })}
                 value={profile.ZIP_CODE}>
               </TextField>
