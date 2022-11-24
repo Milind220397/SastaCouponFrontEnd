@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import axios from 'axios';
+import axios from '../common/axiosInstance';
+import { SESSION_STORAGE_KEY } from "../constants/Constants";
 
 const AuthContext = createContext();
 
@@ -8,6 +9,15 @@ export function useAuth() {
 }
 
 export function AuthProvider({children}) {
+
+    const getCurrentUser = () => {
+        const user = localStorage.getItem(SESSION_STORAGE_KEY);
+        if(user) {
+            return JSON.parse(user);
+        } else {
+            return null;
+        }
+    }
 
     const setCurrentUser = (user) => {
         localStorage.setItem('sasta-coupon-app', JSON.stringify(user));
@@ -20,7 +30,7 @@ export function AuthProvider({children}) {
     }
 
     const signIn = async (email, password) => {
-        return await axios.post('http://localhost:9000/logIn', {
+        return await axios.post('/logIn', {
             email: email,
             password: password
         }, ).then(response => {
@@ -34,7 +44,7 @@ export function AuthProvider({children}) {
     }
 
     const signUp = async (email, password) => {
-        return await axios.post('http://localhost:9000/signUp', {
+        return await axios.post('/signUp', {
             email: email,
             password: password
         }).then(response => {
@@ -48,13 +58,15 @@ export function AuthProvider({children}) {
     }
 
     const logOut = () => {
-        setCurrentUser(null);
+        localStorage.removeItem(SESSION_STORAGE_KEY);
+        window.location.href='/SastaCouponFrontEnd/';
     }
 
     const value = {
         signIn,
         signUp,
-        logOut
+        logOut,
+        getCurrentUser
     }
 
     return <AuthContext.Provider value={value}>

@@ -40,7 +40,11 @@
 }
 
 .nav-icons {
-  padding: 0 20px 10vw;
+  padding-bottom: 13vw;
+}
+
+.hamburger {
+  padding: 0 12px 13vw;
 }
 
 @media all and (max-width: 1024px) {
