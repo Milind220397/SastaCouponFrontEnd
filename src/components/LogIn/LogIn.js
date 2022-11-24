@@ -1,7 +1,6 @@
 import { TextField, Typography } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import { useRef, useState } from 'react';
 import { Link, redirect, useLocation, useNavigate } from 'react-router-dom';
 import Google from './GoogleLogo.png';

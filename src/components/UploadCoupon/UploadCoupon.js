@@ -9,7 +9,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 import "./UploadCoupon.css"
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../common/axiosInstance';
 import { Typography } from '@mui/material';
 import UploadStatusDialog from '../Dialog/UploadStatusDialog';
 
@@ -22,7 +22,7 @@ export default function UploadCoupon(props) {
 
     useEffect(() => {
         const fetchImages = async () => {
-                await axios.get('http://localhost:9000/images').then((res) => {
+                await axios.get('/images').then((res) => {
                 if(res.status === 200) {
                     const imagedata =  new Map(Object.entries(res.data))
                     setImages(imagedata);
@@ -103,7 +103,7 @@ export default function UploadCoupon(props) {
     const handleOnSubmit = (e) => {
         e.preventDefault();
         if(validateForm()) {
-            axios.post('http://localhost:9000/uploadCoupon', createUploadCouponObject()).then((res) => {
+            axios.post('/uploadCoupon', createUploadCouponObject()).then((res) => {
                 if(res.status === 200) {
                     setMessage('Coupon Uploaded Successfully');
                     setDialogOpen(true);

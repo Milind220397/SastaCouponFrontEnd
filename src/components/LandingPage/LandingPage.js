@@ -4,7 +4,7 @@ import LandingPageCard from "./LandingPageCard/LandingPageCard";
 import Button from '@mui/material/Button';
 import bannerImage from './banner_image.png'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../common/axiosInstance';
 
 export default function LandingPage() {
 
@@ -12,7 +12,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         const fetchCoupons = async () => {
-            await axios.get('http://localhost:9000/recent-coupon').then(res => {
+            await axios.get('/recent-coupon').then(res => {
                 if(res.status === 200) {
                     setCoupons(JSON.parse(res.data));
                 }

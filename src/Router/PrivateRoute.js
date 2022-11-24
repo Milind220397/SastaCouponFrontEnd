@@ -1,8 +1,10 @@
 import React from "react"
 import { Navigate, useLocation } from "react-router-dom"
+import { useAuth } from '../Context/AuthProvider';
 
 export default function PrivateRoute({ children }) {
-  const currentUser = localStorage.getItem('sasta-coupon-app');
+  const auth = useAuth();
+  const currentUser = auth.getCurrentUser();
   const location = useLocation();
 
   if(!currentUser) {
