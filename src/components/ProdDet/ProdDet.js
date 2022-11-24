@@ -67,8 +67,9 @@ export default function ProdDet(props) {
     }
 
     const data = await axios
-      .post(`http://localhost:1347/razorpay?`, {
-       id: location.state.couponId ,
+      .post(`http://localhost:9000/razorpay?`, {
+      // id: location.state.couponId ,
+      id: coup_id ,
        amount:coupon.PRICE,
        coupon_id:coupon.ID,
       }).then((t) =>{
@@ -85,7 +86,7 @@ export default function ProdDet(props) {
       order_id: data.id,
       name: 'SastaCoupon',
       description: 'Buy and Sell Coupons',
-      image: './Indigo.png',
+      image: 'https://i.postimg.cc/Qx7Fm4sm/Logo.png',
       handler: function (response) {
         
        console.log(response);
@@ -132,7 +133,7 @@ export default function ProdDet(props) {
     console.log("Inside PRodetais Useeefeect");
 
     axios
-      .get(`http://127.0.0.1:1347/proddet?`, {
+      .get(`http://127.0.0.1:9000/proddet?`, {
         params: { id: coup_id },
       })
       .then(

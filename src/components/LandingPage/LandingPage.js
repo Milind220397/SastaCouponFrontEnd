@@ -12,7 +12,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         const fetchCoupons = async () => {
-            await axios.get('http://localhost:9000/recent-coupon').then(res => {
+            await axios.get('http://localhost:1347/recent-coupon').then(res => {
                 if(res.status === 200) {
                     setCoupons(JSON.parse(res.data));
                 }

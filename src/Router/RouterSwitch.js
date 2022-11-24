@@ -26,5 +26,6 @@ export default function RouterSwitch() {
             <Route path=":name"></Route>
         </Route>
         <Route path='*' element={<NotFoundPage/>}></Route>
+        
     </Routes>
 }
