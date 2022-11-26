@@ -16,6 +16,9 @@ export default function LandingPage() {
                 if(res.status === 200) {
                     setCoupons(JSON.parse(res.data));
                 }
+                else{
+                    console.log("No data")
+                }
             })
         }
 
