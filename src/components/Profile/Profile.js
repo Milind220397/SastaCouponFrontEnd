@@ -49,10 +49,9 @@ const fullUrl = baseURL.concat(path);
   //Functinality for Save button
   async function handleSave() {
   
-    // axios.post(`http://127.0.0.1:1347/profile`, {
 
        axios.post(fullUrl, {   
-      id: id,                                        //   change to dynamic once connection is done
+      id: profile.ID,                                        //   change to dynamic once connection is done
       firstname: profile.FIRST_NAME,
       lastname:profile.LAST_NAME,
       contact: profile.CONTACT,
@@ -86,7 +85,6 @@ const fullUrl = baseURL.concat(path);
     console.log("jgjghj"+process.env.REACT_APP_NODE_BACKEND_URL);
     axios
         .get(fullUrl,{
-             // .get('http://127.0.0.1:1347/profile?',{
       params:{
         id:userId
       }
@@ -103,7 +101,7 @@ const fullUrl = baseURL.concat(path);
           let updatedValue = {};
           console.log(res.data);
           console.log(zip_code);
-         // let fullname = first_name.concat(" ", last_name);
+        
           updatedValue = {
             "ID": res.data.ID,
             "FIRST_NAME": res.data.FIRST_NAME,

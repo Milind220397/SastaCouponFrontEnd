@@ -6,7 +6,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CountertopsRounded } from "@mui/icons-material";
-import { AuthProvider } from "../../Context/AuthProvider";
+import { AuthProvider, useAuth } from "../../Context/AuthProvider";
 import Profile from "../Profile/Profile";
 const __DEV__ = document.domain === 'localhost';   // need to change while deploying"
 
@@ -52,6 +52,7 @@ export default function ProdDet(props) {
       state: obj
     })
   };
+  let auth = useAuth();
   const [coupon, setcoupon] = useState({
     ID: '',
     NAME: '',
@@ -157,6 +158,12 @@ export default function ProdDet(props) {
   }
   useEffect(() => {
     console.log("Inside PRodetais Useeefeect");
+
+    if (auth.getCurrentUser()){
+
+    }else{
+      navigate('/logIn')
+    }
 
     axios
       // .get(`http://127.0.0.1:9000/proddet?`, {

@@ -25,57 +25,48 @@ function CouponHistory() {
             }
 
             await axios
-                .get(`http://127.0.0.1:9000/couponhistory`, {
-                    //  .get(fullUrl, {
+                .get(fullUrl, {
                     params: { id: id1 },
                 })
                 .then(
                     res => {
-                        // const arr = Object.entries(res.data);
-                    // console.log(res.data)
-                     const arr = res.data;
 
-                     console.log(JSON.parse(arr))
-                       
-
-                    setCouponsHistory(JSON.parse(arr));
-            console.log("History")
-            console.log(couponhistory);
-        }
+                        const arr = res.data;
+                        console.log(JSON.parse(arr))
+                        setCouponsHistory(JSON.parse(arr));
+                        // console.log("History")
+                        // console.log(couponhistory);
+                    }
                 )
-}
+        }
 
-fetch_history();
+        fetch_history();
 
     }, []);
-return (
-    <div>
-        <div class='test'>{JSON.stringify(couponhistory)}</div>
+    return (
+        <div>
+            <div class='test'>{JSON.stringify(couponhistory)}</div>
 
-        {couponhistory.map((coupons) => <div class='coupon '>{coupons.COUPON_ID}</div>)}
-        {
-            couponhistory.map((item) => {
+           {/* {couponhistory.map((coupons) => <div class='coupon '>{coupons.COUPON_ID}</div>)} */}
+            {
+                couponhistory.map((item) => {
 
-                <ul className='nav-list2'>
-                    <li>{item}</li>
-                    <li>Coupon</li>
-                    <li>Type of Purchase</li>
-                    <li>Sold On/ Bought On</li>
-                    {/* <li>{item.COUPON_ID}</li>
+                    return <ul className='nav-list2'>
+                        <li>{item.COUPON_ID}</li>
                         <li><img className='image' src='https://i.postimg.cc/QMQLHZzv/travel-2.png'> </img></li>
                         <li>{item.TRANSACTION_TYPE}</li>
-                        <li>{item.PAYMENT_TIMESTAMP}</li> */}
-                </ul>
+                        <li>{item.PAYMENT_TIMESTAMP}</li>
+                    </ul>
 
-            })
+                })
 
-        }
-
-
-    </div>
+            }
 
 
-)
+        </div>
+
+
+    )
 }
 export default CouponHistory
 
