@@ -8,6 +8,7 @@ import axios from "axios";
 import { CountertopsRounded } from "@mui/icons-material";
 import { AuthProvider, useAuth } from "../../Context/AuthProvider";
 import Profile from "../Profile/Profile";
+import { SESSION_STORAGE_KEY } from "../../constants/Constants";
 const __DEV__ = document.domain === 'localhost';   // need to change while deploying"
 
 function loadScript(src) {
@@ -76,11 +77,11 @@ export default function ProdDet(props) {
       return
     }
 
-
-    console.log(location.state);
     let buyer_id;
+    console.log(location.state);
+    
     if (coupon.BUYER_ID == null) {
-      buyer_id = '10'
+      buyer_id =  JSON.parse(localStorage.getItem(SESSION_STORAGE_KEY)).userId;
     } else {
       buyer_id = location.state.user_id;
     }
