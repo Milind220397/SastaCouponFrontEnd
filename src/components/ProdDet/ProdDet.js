@@ -29,6 +29,13 @@ function loadScript(src) {
 
 export default function ProdDet(props) {
 
+
+  const baseURL = process.env.REACT_APP_NODE_BACKEND_URL;
+  const path = '/razorpay';
+  const path1 = '/proddet'
+  const fullUrl = baseURL.concat(path);
+  const fullUrl1 = baseURL.concat(path1);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -77,7 +84,8 @@ export default function ProdDet(props) {
       buyer_id = location.state.user_id;
     }
     const data = await axios
-      .post(`http://localhost:9000/razorpay?`, {
+      // .post(`http://localhost:9000/razorpay?`, {
+        .post(fullUrl, {
         // id: location.state.couponId ,
         id: buyer_id,
         amount: coupon.PRICE,
@@ -140,17 +148,19 @@ export default function ProdDet(props) {
   let coup_id;
   //*********************************Fetching Coupon Details**************************************/
   //console.log(location.state.couponId)
+  console.log(location.state)
   if (location.state == null) {
     coup_id = 1247;
 
   } else {
-    coup_id = location.state.couponID;
+    coup_id = location.state.couponId;
   }
   useEffect(() => {
     console.log("Inside PRodetais Useeefeect");
 
     axios
-      .get(`http://127.0.0.1:9000/proddet?`, {
+      // .get(`http://127.0.0.1:9000/proddet?`, {
+        .get(fullUrl1, {
         params: { id: coup_id },
       })
       .then(
@@ -211,6 +221,7 @@ export default function ProdDet(props) {
             merchants.</li>
         </Box>
       </div>
+      
       <div className="coupon">
         <div className="couponitem">
           <label className="label">Coupon Id  </label>

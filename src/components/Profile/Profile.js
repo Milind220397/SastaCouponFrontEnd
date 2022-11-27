@@ -8,10 +8,12 @@ import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { SESSION_STORAGE_KEY } from '../../constants/Constants';
 
 function Profile() {
 
-
+const navigate = useNavigate();
 const baseURL = process.env.REACT_APP_NODE_BACKEND_URL;
 const path = '/profile';
 const fullUrl = baseURL.concat(path);
@@ -67,20 +69,31 @@ const fullUrl = baseURL.concat(path);
       });
 
   }
+  async function handleHistory() {
+
+    let obj = {
+      "id": profile.ID,  
+    }
+    console.log("Object"+JSON.stringify(obj));
+    navigate('/coupon-history', {
+      state: obj
+    })
+  }
 
   useEffect(() => {
+    const userId = JSON.parse(localStorage.getItem(SESSION_STORAGE_KEY)).userId;
     console.log(process.env.REACT_APP_NODE_BACKEND_URL);
     console.log("jgjghj"+process.env.REACT_APP_NODE_BACKEND_URL);
     axios
         .get(fullUrl,{
              // .get('http://127.0.0.1:1347/profile?',{
       params:{
-        id:id
+        id:userId
       }
       })
       .then(
         (res) => {
-          
+          console.log(res.data)
           first_name = res.data.FIRST_NAME;
           last_name = res.data.LAST_NAME;
           email_id = res.data.EMAIL_ID;
@@ -90,7 +103,7 @@ const fullUrl = baseURL.concat(path);
           let updatedValue = {};
           console.log(res.data);
           console.log(zip_code);
-          let fullname = first_name.concat(" ", last_name);
+         // let fullname = first_name.concat(" ", last_name);
           updatedValue = {
             "ID": res.data.ID,
             "FIRST_NAME": res.data.FIRST_NAME,
@@ -108,11 +121,13 @@ const fullUrl = baseURL.concat(path);
             ...item,
             ...updatedValue
           }));
-         
+        
         }
 
       )
   }, []);
+
+  console.log(profile);
 
   return (
 
@@ -132,7 +147,7 @@ const fullUrl = baseURL.concat(path);
             </Button>
           </div>
 
-          <button className='button1'>HISTORY</button>
+          <button className='button1' onClick={handleHistory}>HISTORY</button>
 
         </div>
         <div className='profile2'>
@@ -140,7 +155,7 @@ const fullUrl = baseURL.concat(path);
           <div className='profile21'>
             <div className='fullname1'>
 
-              <label className='fullname11'>Full Name</label>
+              <label className='fullname11'>First Name</label>
               <TextField className='fullname12' size="small" style={{ width: 350 }}
                 onChange={e => {
                   setprofile({ ...profile, FIRST_NAME: e.target.value })
