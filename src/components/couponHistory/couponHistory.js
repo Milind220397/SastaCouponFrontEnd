@@ -30,12 +30,12 @@ function CouponHistory() {
                 })
                 .then(
                     res => {
-
+console.log(res)
                         const arr = res.data;
-                        console.log(JSON.parse(arr))
+                        console.log(arr)
                         setCouponsHistory(JSON.parse(arr));
-                        // console.log("History")
-                        // console.log(couponhistory);
+                        console.log("History")
+                        console.log(couponhistory);
                     }
                 )
         }
@@ -45,22 +45,24 @@ function CouponHistory() {
     }, []);
     return (
         <div>
-            <div class='test'>{JSON.stringify(couponhistory)}</div>
+         
+         <ul class='nav-list1 '>
+           <li>Coupon Id</li>
+            <li>Coupon</li>
+            <li>Bought/Sold</li>
+            <li>Date </li>
+            </ul>
+            {/* <div class='test'> {JSON.stringify(couponhistory)} </div> */}
 
-           {/* {couponhistory.map((coupons) => <div class='coupon '>{coupons.COUPON_ID}</div>)} */}
-            {
-                couponhistory.map((item) => {
-
-                    return <ul className='nav-list2'>
-                        <li>{item.COUPON_ID}</li>
-                        <li><img className='image' src='https://i.postimg.cc/QMQLHZzv/travel-2.png'> </img></li>
-                        <li>{item.TRANSACTION_TYPE}</li>
-                        <li>{item.PAYMENT_TIMESTAMP}</li>
-                    </ul>
-
-                })
-
-            }
+           {couponhistory.map((coupons) => <ul class='nav-list2 '>
+           
+          
+           <li>{coupons.COUPON_ID} </li>
+            <li><img className='image' src='https://i.postimg.cc/QMQLHZzv/travel-2.png' ></img></li>
+            <li>{coupons.TRANSACTION_TYPE} </li>
+            <li>{coupons.PAYMENT_TIMESTAMP.slice(0,10)} </li>
+            </ul>)}
+          
 
 
         </div>

@@ -37,7 +37,12 @@
 
 }
 
+.nav-list2 > ul > li {
+    left:100px;
+}
+
 .image {
     position: relative;
-    height: 100px;
+    height: 115px;
+    left: 15px;
 }

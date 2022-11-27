@@ -77,17 +77,15 @@ export default function ProdDet(props) {
     }
 
 
-    console.log(coupon);
+    console.log(location.state);
     let buyer_id;
     if (coupon.BUYER_ID == null) {
-      buyer_id = '1'
+      buyer_id = '10'
     } else {
       buyer_id = location.state.user_id;
     }
     const data = await axios
-      // .post(`http://localhost:9000/razorpay?`, {
-        .post(fullUrl, {
-        // id: location.state.couponId ,
+      .post(fullUrl, {
         id: buyer_id,
         amount: coupon.PRICE,
         coupon_id: coupon.ID,
@@ -152,22 +150,19 @@ export default function ProdDet(props) {
   console.log(location.state)
   if (location.state == null) {
     coup_id = 1247;
-
   } else {
     coup_id = location.state.couponId;
   }
   useEffect(() => {
     console.log("Inside PRodetais Useeefeect");
 
-    if (auth.getCurrentUser()){
-
-    }else{
+    if (auth.getCurrentUser()) {
+    } else {
       navigate('/logIn')
     }
 
     axios
-      // .get(`http://127.0.0.1:9000/proddet?`, {
-        .get(fullUrl1, {
+      .get(fullUrl1, {
         params: { id: coup_id },
       })
       .then(
@@ -202,7 +197,6 @@ export default function ProdDet(props) {
           console.log(coupon)
 
 
-
         }
 
       )
@@ -228,7 +222,7 @@ export default function ProdDet(props) {
             merchants.</li>
         </Box>
       </div>
-      
+
       <div className="coupon">
         <div className="couponitem">
           <label className="label">Coupon Id  </label>
